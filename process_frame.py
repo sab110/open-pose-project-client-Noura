@@ -8,7 +8,7 @@ from utils import find_angle, get_landmark_features, draw_text, draw_dotted_line
 class ProcessFrame:
     def __init__(self, thresholds, flip_frame = False):
         
-        # Set if frame should be flipped or not.
+        # Set if frame should be flipped or not. flip_frame is optional — for mirrored cameras.
         self.flip_frame = flip_frame
 
         # self.thresholds
@@ -107,6 +107,12 @@ class ProcessFrame:
             'back_angle_consistency': 3.0  # Placeholder
         }
 
+    # Classifies the current squat state using the knee angle:
+
+    # s1 = standing
+    # s2 = in squat
+    # s3 = deep squat
+    # Used to track the movement progression and decide if the rep is complete.
 
     def _get_state(self, knee_angle):
         
@@ -123,6 +129,11 @@ class ProcessFrame:
 
 
 
+    # Tracks if user followed a proper movement pattern:
+
+    # s2 → s3 → s1 = correct rep
+    # s2 alone = improper
+    # Skipped or incorrect transitions = improper
     
     def _update_state_sequence(self, state):
 
@@ -166,6 +177,18 @@ class ProcessFrame:
 
         return frame
 
+    
+    # This is the main function, called on every video frame.
+
+    # Workflow:
+    # Get pose landmarks from MediaPipe
+    # Get coordinates of key joints: shoulders, hips, knees, ankles
+    # Check camera alignment using shoulder–nose angle
+    # Calculate vertical joint angles: hip, knee, ankle
+    # Determine which leg is visible
+    # Classify the current squat state (s1, s2, s3)
+    # Decide if the rep is correct or not
+    # Display visual cues and metrics
 
 
     def process(self, frame: np.array, pose):

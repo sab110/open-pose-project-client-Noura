@@ -12,7 +12,7 @@ import os
 import threading
 from queue import Queue
 
-# Initialize MediaPipe Pose
+# Initialize MediaPipe Pose Detector
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose(
     min_detection_confidence=0.5,
@@ -68,6 +68,7 @@ with st.sidebar:
     st.header("⚙️ Settings")
     difficulty = st.radio("Select Difficulty Level:", ["Beginner", "Pro"], index=0)
 
+# Initialize frame processor based on difficulty
 if 'frame_processor' not in st.session_state:
     st.session_state.frame_processor = ProcessFrame(
         get_thresholds_beginner() if difficulty == "Beginner" else get_thresholds_pro()
@@ -113,6 +114,7 @@ with col1:
         video_path = st.session_state.video_path
         frame_processor = st.session_state.frame_processor
 
+        # Each frame is analyzed using ProcessFrame
         thread = threading.Thread(
             target=process_video,
             args=(video_path, frame_processor, progress_queue, result_queue)
@@ -142,6 +144,8 @@ with col1:
                     "stats": stats
                 })
 
+    # User can manually view the processed video.
+    
     if st.session_state.processed_frames:
         st.markdown("### ▶️ Playback Controls")
         col_playback = st.columns(3)

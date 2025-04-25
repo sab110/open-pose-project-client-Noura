@@ -2,10 +2,20 @@
 import mediapipe as mp
 import numpy as np
 import cv2
+
+# It’s like the toolbox for all drawing and pose detection utilities.
+
+
+
 correct = cv2.imread('right.png')
 correct = cv2.cvtColor(correct, cv2.COLOR_BGR2RGB)
 incorrect = cv2.imread('wrong.png')
 incorrect = cv2.cvtColor(incorrect, cv2.COLOR_BGR2RGB)
+
+
+# Used to highlight feedback messages like "Lower your hips".
+
+
 
 def draw_rounded_rect(img, rect_start, rect_end, corner_width, box_color):
 
@@ -141,6 +151,12 @@ def get_landmark_features(kp_results, dict_features, feature, frame_width, frame
     else:
        raise ValueError("feature needs to be either 'nose', 'left' or 'right")
 
+
+# This function initializes MediaPipe Pose, with tuning options like:
+# Detection confidence
+# Landmark smoothing
+# Static vs. video input mode
+# Used once when the app starts to set up the pose model.
 
 def get_mediapipe_pose(
                         static_image_mode = False, 

@@ -1,6 +1,6 @@
 {
-    "total_reps": 3,
-    "improper_reps": 0,
+    "total_reps": 0,
+    "improper_reps": 3,
     "average_quality": 100.0,
     "best_rep_quality": 100.0,
     "depth_consistency": 5.0,
