@@ -1,0 +1,8 @@
+{
+    "total_reps": 0,
+    "improper_reps": 0,
+    "average_quality": 100.0,
+    "best_rep_quality": 100.0,
+    "depth_consistency": 5.0,
+    "back_angle_consistency": 3.0
+}

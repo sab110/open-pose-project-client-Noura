@@ -2,4 +2,24 @@ Reference Video : https://youtu.be/YaXPRqUwItQ
 
 Input 1: squat too deep
 Input 2: Not a side view video so unable to detect the joints correctly hence failing at couting reps
-Input 3: squat too deep
+Input 3: Not going down , bending forward 
+Input 4: The form , posture , reps are too clean as per the reference video
+Input 5: Going too deep , more like situp
+Input 6: Unable to detect reps due to not being side angle
+Input 7: Going too deep , more like situp
+Input 8: Unable to detect reps , due to not being side angle 
+Input 9: Just Perfect , the form is too good
+Input 10: 1st rep not complete , rest looks solid
+Input 11: Incomplete squats , not going down
+Input 12: Camera not aligned correctly to detect the reps
+Input 13: Camera not aligned correctly to detect the reps
+Input 14: Camera not aligned correctly to detect the reps
+Input 15: Camera not aligned correctly to detect the reps
+Input 16: 3 reps not good (going too deep) , 1 rep acceptable
+Input 17: 1 rep not good ( knee falling over toe , squat too deep) , 1 rep acceptable
+Input 18: 3 incorrect reps slightly leaning forward , hips not going down
+Input 19: 1 incorrect rep , Camera not aligned correctly to detect the reps
+Input 20: Camera not aligned correctly to detect the reps , 3 incorrect reps not going down
+Input 21: First 2 incorrect reps and last one too ( squat too deep ) , 3rd 4th correct squats
+Input 22: 1 incoorect rep ( hips not lowered)
+Input 23: 1 correct rep
